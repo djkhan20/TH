@@ -67,7 +67,14 @@ class App extends Component {
     });
     const actual = await response.json();
     console.log (actual);
-    this.setState({propiedades: actual, open:false});
+    this.setState({
+      propiedades: actual, 
+      open:false,  
+      nombreNu:'', 
+      direccionNu: '',
+      duenoNu:'', 
+      costoNu:''
+    });
 
   }
 
@@ -84,10 +91,10 @@ render() {
             <section className='add-item'>
                 <strong>Nueva Propiedad</strong>
                 <form style = {{marginTop: '20px'}} onSubmit = {this.nuevaProp}>
-                  <input type="text" name="currentItem" placeholder="Propiedad" onChange={e => this.setState({ nombreNu: e.target.value })} />
-                  <input type="text" name="currentItem" placeholder="Dueño" onChange={e => this.setState({ duenoNu: e.target.value })} />
-                  <input type="text" name="currentItem" placeholder="Dirección" onChange={e => this.setState({ direccionNu: e.target.value })} />
-                  <input type="text" name="currentItem" placeholder="Costo" onChange={e => this.setState({ costoNu: e.target.value })} />
+                  <input type="text" name="currentItem" value={this.state.nombreNu} placeholder="Propiedad" onChange={e => this.setState({ nombreNu: e.target.value })} />
+                  <input type="text" name="currentItem" value={this.state.duenoNu} placeholder="Dueño" onChange={e => this.setState({ duenoNu: e.target.value })} />
+                  <input type="text" name="currentItem" value={this.state.direccionNu} placeholder="Dirección" onChange={e => this.setState({ direccionNu: e.target.value })} />
+                  <input type="text" name="currentItem" value={this.state.costoNu} placeholder="Costo" onChange={e => this.setState({ costoNu: e.target.value })} />
                   <button>Agregar</button>
                 </form>
             </section>
