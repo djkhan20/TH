@@ -89,12 +89,10 @@ render() {
           </header>         
           <div className='container'>
             <section className='add-item animated slideInLeft'>
-                <strong>Nueva Propiedad</strong>
+                <center><strong>Nueva Propiedad</strong></center>
                 <form style = {{marginTop: '20px'}} onSubmit = {this.nuevaProp}>
-                  <input required type="text" name="currentItem" value={this.state.nombreNu} placeholder="Propiedad" onChange={e => this.setState({ nombreNu: e.target.value })} />
-                  <input required type="text" name="currentItem" value={this.state.duenoNu} placeholder="Dueño" onChange={e => this.setState({ duenoNu: e.target.value })} />
-                  <input required type="text" name="currentItem" value={this.state.direccionNu} placeholder="Dirección" onChange={e => this.setState({ direccionNu: e.target.value })} />
-                  <input required type="text" name="currentItem" value={this.state.costoNu} placeholder="Costo" onChange={e => this.setState({ costoNu: e.target.value })} />
+                  <input required type="text" name="Direc" value={this.state.direccionNu} placeholder="Dirección" onChange={e => this.setState({ direccionNu: e.target.value })} />
+                  <input required type="text" name="Cost" value={this.state.costoNu} placeholder="Costo" onChange={e => this.setState({ costoNu: e.target.value })} />
                   <button>Agregar</button>
                 </form>
             </section>
