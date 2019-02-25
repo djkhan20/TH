@@ -80,12 +80,12 @@ app.put('/propiedades/:id', function(req, res, next) {
     //console.log("id en api: " +id);
 	//console.log("texto enviado en api: "+ req.body.post);
     actualizarPropiedad( req.params.id , req.body.nombreProp ,req.body.nombre, req.body.direccion, req.body.costo);
-	res.send('Actualizado');
+	res.send(propiedades);
 });
 
 app.post('/propiedades/new',(req,res)=>{
   guardarPropiedad(req.body.nombreProp, req.body.nombre, req.body.direccion, req.body.costo);
-  res.send('Creado');
+  res.send(propiedades);
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

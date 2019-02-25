@@ -42,6 +42,7 @@ class App extends Component {
   };
 
   edicionProp = async e => {
+    e.preventDefault();
     const id = this.state.idCamb;
     const response = await fetch('/propiedades/' + id, {
       method: 'PUT',
@@ -50,11 +51,13 @@ class App extends Component {
       },
       body: JSON.stringify({ nombreProp: this.state.nombrePropCamb, nombre: this.state.nombreCamb, direccion: this.state.direcCamb, costo: this.state.costCamb }),
     });
-    const actual = await response.text();
+    const actual = await response.json();
     console.log (actual);
+    this.setState({propiedades: actual, open:false});
   };
 
   nuevaProp = async e => {
+    e.preventDefault();
     const response = await fetch('/propiedades/new', {
       method: 'POST',
       headers: {
@@ -62,8 +65,10 @@ class App extends Component {
       },
       body: JSON.stringify({ nombreProp: this.state.nombreNu , nombre: this.state.duenoNu, direccion: this.state.direccionNu, costo: this.state.costoNu }),
     });
-    const actual = await response.text();
+    const actual = await response.json();
     console.log (actual);
+    this.setState({propiedades: actual, open:false});
+
   }
 
 render() {
